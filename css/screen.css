@@ -160,11 +160,25 @@ a:focus {
 /*------------------------------------*\
   #OBJECTS
 \*------------------------------------*/
+
+/*
+    Objects: Container
+    ---
+    Creates a horizontal container that sets de global max-width
+*/
+
+.o-container {
+    max-width: 90em;
+    margin: auto;
+}
+
 /*
     Objects: Row
     ---
     Creates a horizontal row that stretches the viewport and adds padding around children
 */
+
+
 
 .o-row {
     padding: 24px 24px 0;
@@ -172,7 +186,7 @@ a:focus {
 }
 
 .o-row--primary {
-    background-color: rgb(231, 135, 17);
+    background-color: rgb(238, 102, 11);
     color: white;
     
 }
@@ -187,11 +201,8 @@ a:focus {
         padding: 48px 48px 0;
     }
 }
-/*
-    Object: Object name
-    ---
-    Object description
-*/
+
+
 
 /*------------------------------------*\
   #COMPONENTS
