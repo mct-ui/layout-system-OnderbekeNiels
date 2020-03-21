@@ -276,7 +276,7 @@ a:focus {
 }
 
 .o-layout--justify-space-evenly {
-  justify-content: spa;
+  justify-content: space-evenly;
 }
 
 /* Vertical item alignment modifiers */
@@ -318,6 +318,7 @@ a:focus {
 .o-layout--align-content-space-between {
   align-content: space-between;
 }
+
 
 
 /*------------------------------------*\
