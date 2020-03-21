@@ -17,15 +17,21 @@ html {
   line-height: 1.5;
   font-family: "Helvetica Neue", Helvetica, arial, sans-serif;
   color: #111;
-  box-sizing: border-box;
+  box-sizing:border-box;
+}
+
+*,
+*:before,
+*:after{
+  box-sizing: inherit;
 }
 
 /*
- * Remove text-shadow in selection highlight:
- * https://twitter.com/miketaylr/status/12228805301
- *
- * Customize the background color to match your design.
- */
+* Remove text-shadow in selection highlight:
+* https://twitter.com/miketaylr/status/12228805301
+*
+* Customize the background color to match your design.
+*/
 
 ::-moz-selection {
   background: #e85e00;
@@ -40,13 +46,13 @@ html {
 }
 
 /*------------------------------------*\
-  #Elements
+#Elements
 \*------------------------------------*/
 
 /*
-    Elements: Images
-    ---
-    Default markup for images to make them responsive
+  Elements: Images
+  ---
+  Default markup for images to make them responsive
 */
 
 img {
@@ -55,9 +61,9 @@ img {
 }
 
 /*
-    Elements: typography
-    ---
-    Default markup for typographic elements
+  Elements: typography
+  ---
+  Default markup for typographic elements
 */
 
 h1 {
@@ -71,8 +77,8 @@ h1 {
 /* Example inline media query */
 @media (min-width: 768px) {
   h1 {
-    font-size: 58px;
-    line-height: 64px;
+      font-size: 58px;
+      line-height: 64px;
   }
 }
 
@@ -145,7 +151,7 @@ hr {
 
 a {
   color: RoyalBlue;
-  transition: all 0.1s ease-in-out;
+  transition: all .1s ease-in-out;
 }
 
 a:visited,
@@ -159,15 +165,46 @@ a:focus {
 }
 
 /*------------------------------------*\
-  #OBJECTS
+#OBJECTS
 \*------------------------------------*/
 
 /*
-    Objects: Layout
-    ---
-    The layout object provides us with a column-style layout system. This object
-    contains the basic structural elements, but classes should be complemented
-    with width utilities
+  Object: Object name
+  ---
+  Object description
+*/
+
+.o-row {
+  padding: 24px 24px 0;
+  display: flow-root;
+}
+
+.o-row--dark {
+  padding: 24px 24px 0;
+  background-color: #131313;
+  color: white;
+}
+
+.o-row--primary {
+  padding: 24px 24px 0;
+  background-color: #E85F01;
+  color: white;
+}
+
+.o-container {
+  max-width: 90em;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/*
+  Objects: Layout
+  ---
+  The layout object provides us with a column-style layout system. This object
+  contains the basic structural elements, but classes should be complemented
+  with width utilities
 */
 
 .o-layout {
@@ -189,7 +226,6 @@ a:focus {
 
 .o-layout--gutter > .o-layout__item {
   padding: 0 12px;
-  box-sizing: border-box;
 }
 
 .o-layout--gutter-sm {
@@ -208,55 +244,6 @@ a:focus {
   padding: 0 24px;
 }
 
-@media (min-width: 576px) {
-  .u-flex-basis-auto {
-    flex-basis: auto !important;
-  }
-
-  .u-flex-grow-1 {
-    flex-grow: 1 !important;
-  }
-
-  .u-1-of-2-bp1 {
-    flex-basis: calc(100% / 2) !important;
-  }
-
-  .u-1-of-2-bp2 {
-    flex-basis: calc(100% / 2) !important;
-  }
-
-  .u-1-of-3-bp3 {
-    flex-basis: calc(100% / 3) !important;
-  }
-
-  .u-1-of-4-bp4 {
-    flex-basis: calc(100% / 4) !important;
-  }
-
-  .u-1-of-5-bp5 {
-    flex-basis: calc(100% / 5) !important;
-  }
-
-  .u-1-of-6-bp6 {
-    flex-basis: calc(100% / 6) !important;
-  }
-}
-
-@media (min-width: 768px) {
-  .u-1-of-2-bp2 {
-  }
-}
-
-@media (min-width: 992px) {
-  .u-1-of-2-bp3 {
-  }
-}
-
-@media (min-width: 1200px) {
-  .u-1-of-2-bp4 {
-  }
-}
-
 /* reverse horizontal row modifier */
 
 .o-layout--row-reverse {
@@ -266,41 +253,48 @@ a:focus {
 /* Horizontal alignment modifiers*/
 
 .o-layout--justify-start {
-  justify-content: start;
+  flex-direction: row;
 }
 
-.o-layout--justify-end {
-  justify-content: end;
+.o-layout--justify-end{
+  flex-direction: row-reverse;
 }
 
 .o-layout--justify-center {
+  display: flex;
+  align-items: center;
   justify-content: center;
 }
 
 .o-layout--justify-space-around {
   justify-content: space-around;
+
 }
 
 .o-layout--justify-space-between {
   justify-content: space-between;
 }
 
+.o-layout--justify-space-evenly {
+  justify-content: spa;
+}
+
 /* Vertical item alignment modifiers */
 
 .o-layout--align-start {
-  align-content: flex-start;
+  align-items: flex-start;
 }
 
 .o-layout--align-end {
-  align-content: flex-end;
+  align-items: flex-end;
 }
 
 .o-layout--align-center {
-  align-content: center;
+  align-items: center;
 }
 
 .o-layout--align-baseline {
-  align-content: baseline;
+  align-items: baseline;
 }
 
 /* Vertical content alignment modifiers. Only work if there is one than one flex item */
@@ -310,7 +304,7 @@ a:focus {
 }
 
 .o-layout--align-content-end {
-  align-content: flex-end;
+  align-content: end;
 }
 
 .o-layout--align-content-center {
@@ -325,52 +319,112 @@ a:focus {
   align-content: space-between;
 }
 
-/*
-    Objects: Container
-    ---
-    Creates a horizontal container that sets de global max-width
-*/
 
-.o-container {
-  max-width: 90em;
-  margin: auto;
+/*------------------------------------*\
+#COMPONENTS
+\*------------------------------------*/
+
+/* 
+  Components: Author
+*/
+.c-author {
+  display: flex;
+  align-items: center;
 }
 
+.c-author__image{
+  width: 56px;
+  height: 56px;
+  border-radius: 100%;
+}
+
+.c-author__name,
+.c-author__meta {
+  margin-bottom: 0;
+}
+
+.c-author__meta {
+  font-size: 14px;
+  font-family: "Inter Web", "Helvetica Neue", Helvetica, arial, sans-serif;
+  line-height: 24px;
+}
+
+.c-author__name{
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.c-author__image{
+  width: 56px;
+  height: 56px;
+  border-radius: 100%;
+  margin-right: 16px;
+}
+
+
 /*
-    Objects: Row
-    ---
-    Creates a horizontal row that stretches the viewport and adds padding around children
+  Components: Article
 */
 
-.o-row {
+.c-article__header,
+.c-article__body {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.c-article__header {
   padding: 24px 24px 0;
-  display: flow-root;
 }
 
-.o-row--primary {
-  background-color: rgb(238, 102, 11);
-  color: white;
-}
-
-.o-row--dark {
-  background-color: rgb(34, 33, 33);
-  color: white;
+.c-article__body {
+  padding: 0 24px;
 }
 
 @media (min-width: 768px) {
-  .o-row--lg {
-    padding: 48px 48px 0;
+  .c-article__header{
+      padding: 48px 48px 24px;
+  }
+
+  .c-article__author {
+      padding-bottom: 24px;
+  }
+
+  .c-article__body {
+      padding: 24px 48px;
   }
 }
 
-/*------------------------------------*\
-  #COMPONENTS
-\*------------------------------------*/
+@media (min-width: 992px) {
+  .c-article__body{
+      display: flex;
+      flex-wrap: wrap;
+  }
+
+  .c-article__author {
+      
+      width: 25%;
+      padding-right: 24px;
+  }
+
+  .c-article__content {
+      width: 75%;
+  }
+}
+
+@media (min-width: 992px) {
+  .c-author{
+      display: block;
+  }
+
+  .c-author__image {
+      margin-bottom: 16px;
+  }
+}
 
 /*
-    Component: layout block
-    ---
-    A small component to demonstrate the layout items
+  Component: layout block
+  ---
+  A small component to demonstrate the layout items
 */
 
 .c-layout-block {
@@ -386,18 +440,20 @@ a:focus {
   white-space: nowrap;
 }
 
+
+
 /*------------------------------------*\
-  #UTILITIES
+#UTILITIES
 \*------------------------------------*/
 
 /*
-    Utilities: max-width
-    ---
-    Utility classes to put specific max widths onto elements
+  Utilities: max-width
+  ---
+  Utility classes to put specific max widths onto elements.
 */
 
 .u-max-width-sm {
-  max-width: 36em !important;
+  max-width: 36em;
 }
 
 .u-max-width-md {
@@ -416,89 +472,131 @@ a:focus {
   max-width: none;
 }
 
-.u-max-width-sm {
-  max-width: 36em;
-}
+/*
+  Utility: Utility name
+  ---
+  Utility description
+*/
+
+
 
 /*
-    Utility: Flex
-    ---
-    Utility classes to put specific flex properties onto elements
-    Will be mostly used on o-layout__item
+  Utility: Flex
+  ---
+  Utility classes to put specific flex properties onto elements
+  Will be mostly used on o-layout__item
 */
 
 .u-flex-basis-auto {
   flex-basis: auto !important;
 }
 
-.u-flex-grow-1 {
+.u-flex-grow-1{
   flex-grow: 1 !important;
 }
 
 .u-1-of-2 {
-  flex-basis: calc(100% / 2) !important;
+  flex-basis: calc(100%/2) !important;
 }
 
 .u-1-of-3 {
-  flex-basis: calc(100% / 3) !important;
+  flex-basis: calc(100%/3) !important;
 }
 
 .u-2-of-3 {
-  flex-basis: calc(100% / 3 * 2) !important;
+  flex-basis: calc(100%/3*2) !important;
 }
 
 .u-1-of-4 {
-  flex-basis: calc(100% / 4) !important;
+  flex-basis: calc(100%/4) !important;
 }
 
 .u-3-of-4 {
-  flex-basis: calc(100% / 4 * 3) !important;
+  flex-basis: calc(100%/4*3) !important;
 }
 
 .u-1-of-5 {
-  flex-basis: calc(100% / 5) !important;
+  flex-basis: calc(100%/5) !important;
 }
 
 .u-2-of-5 {
-  flex-basis: calc(100% / 5 * 2) !important;
+  flex-basis: calc(100%/5*2) !important;
 }
 
 .u-3-of-5 {
-  flex-basis: calc(100% / 5 * 3) !important;
+  flex-basis: calc(100%/5*3) !important;
 }
 
 .u-4-of-5 {
-  flex-basis: calc(100% / 5 * 4) !important;
+  flex-basis: calc(100%/5*4) !important;
 }
 
 .u-1-of-6 {
-  flex-basis: calc(100% / 6) !important;
+  flex-basis: calc(100%/6) !important;
 }
 
 .u-5-of-6 {
-  flex-basis: calc(100% / 6 * 5) !important;
+  flex-basis: calc(100%/6*5) !important;
 }
 
-/*
-    Utility: Utility name
-    ---
-    Utility description
-*/
+.u-1-of-2-bp1 {
+  flex-basis: calc(100%/2) !important;
+}
+
+.u-1-of-2-bp2 {
+  flex-basis: calc(100%/2) !important;
+}
+
+.u-1-of-3-bp3 {
+  flex-basis: calc(100%/3) !important;
+}
+
+.u-1-of-4-bp4 {
+  flex-basis: calc(100%/4) !important;
+}
+
+.u-1-of-5-bp5 {
+  flex-basis: calc(100%/5) !important;
+}
+
+.u-1-of-6-bp6 {
+  flex-basis: calc(100%/6) !important;
+}
+
+.u-1-of-4-bp2 {
+  flex-basis: calc(100%/4) !important;
+}
+
+@media (min-width: 576px) {
+  .u-1-of-2-bp1 {}
+}
+
+@media (min-width: 768px) {
+  .u-1-of-2-bp2 {}
+}
+
+@media (min-width: 992px) {
+  .u-1-of-2-bp3 {}
+}
+
+@media (min-width: 1200px) {
+  .u-1-of-2-bp4 {}
+}
 
 /*------------------------------------*\
-  #MEDIA
+#MEDIA
 \*------------------------------------*/
 
 /*
-    Media Queries
-    ---
-    EXAMPLE Media Queries for Responsive Design.
-    These examples override the primary ('mobile first') styles.
-    USE THEM INLINE!
+  Media Queries
+  ---
+  EXAMPLE Media Queries for Responsive Design.
+  These examples override the primary ('mobile first') styles.
+  USE THEM INLINE!
 */
 
 /* Extra small devices (portrait phones, less than 576px)
-   No media query since this is the default in mobile first design
+ No media query since this is the default in mobile first design
 */
 
 /* Small devices (landscape phones, 576px and up)
@@ -509,77 +607,81 @@ a:focus {
 @media (min-width: 768px) {}
 */
 
-/* Large devices (landscape tablets, desktops, 992px and up)
-@media (min-width: 992px) {}
-*/
+Large devices (landscape tablets, desktops, 992px and up)
+@media (min-width: 992px) {
+  .o-row--lg{
+      padding: 48px 48px 0;
+  }
+}
+
 
 /* Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {}
 */
 
 /*
-    Print styles.
-    ---
-    Inlined to avoid the additional HTTP request:
-    http://www.phpied.com/delay-loading-your-print-css/
+  Print styles.
+  ---
+  Inlined to avoid the additional HTTP request:
+  http://www.phpied.com/delay-loading-your-print-css/
 */
 
 @media print {
   *,
   *:before,
   *:after {
-    background: transparent !important;
-    color: #000 !important;
-    /* Black prints faster:
-                                   http://www.sanbeiji.com/archives/953 */
-    box-shadow: none !important;
-    text-shadow: none !important;
+      background: transparent !important;
+      color: #000 !important;
+      /* Black prints faster:
+                                 http://www.sanbeiji.com/archives/953 */
+      box-shadow: none !important;
+      text-shadow: none !important;
   }
   a,
   a:visited {
-    text-decoration: underline;
+      text-decoration: underline;
   }
   a[href]:after {
-    content: " (" attr(href) ")";
+      content: " (" attr(href) ")";
   }
   abbr[title]:after {
-    content: " (" attr(title) ")";
+      content: " (" attr(title) ")";
   }
   /*
-     * Don't show links that are fragment identifiers,
-     * or use the `javascript:` pseudo protocol
-     */
+   * Don't show links that are fragment identifiers,
+   * or use the `javascript:` pseudo protocol
+   */
   a[href^="#"]:after,
   a[href^="javascript:"]:after {
-    content: "";
+      content: "";
   }
   pre {
-    white-space: pre-wrap !important;
+      white-space: pre-wrap !important;
   }
   pre,
   blockquote {
-    border: 1px solid #999;
-    page-break-inside: avoid;
+      border: 1px solid #999;
+      page-break-inside: avoid;
   }
   /*
-     * Printing Tables:
-     * http://css-discuss.incutio.com/wiki/Printing_Tables
-     */
+   * Printing Tables:
+   * http://css-discuss.incutio.com/wiki/Printing_Tables
+   */
   thead {
-    display: table-header-group;
+      display: table-header-group;
   }
   tr,
   img {
-    page-break-inside: avoid;
+      page-break-inside: avoid;
   }
   p,
   h2,
   h3 {
-    orphans: 3;
-    widows: 3;
+      orphans: 3;
+      widows: 3;
   }
   h2,
   h3 {
-    page-break-after: avoid;
+      page-break-after: avoid;
   }
 }
